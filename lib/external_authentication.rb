@@ -10,7 +10,7 @@ class ExternalAuthentication
     uid      = env['HTTP_X-Uid']
     app_name = env['HTTP_X-App-Name']
 
-    raise env.to_yaml
+    p "env: #{env}"
 
     p "Token: #{token}"
     p "uid: #{uid}"
