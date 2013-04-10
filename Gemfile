@@ -8,6 +8,7 @@ gem 'thin'
 gem 'active_model_serializers', :github => 'rails-api/active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'httparty'
+gem 'rack-icis_identity_auth', :require => 'rack/icis_identity_auth'
 
 group :development, :test do
   gem 'debugger'

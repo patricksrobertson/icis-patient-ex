@@ -5,6 +5,13 @@ GIT
     active_model_serializers (0.7.0)
       activemodel (>= 3.0)
 
+PATH
+  remote: ~/patricksrobertson/rack-icis_identity_auth
+  specs:
+    rack-icis_identity_auth (0.1.0)
+      httparty
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -120,6 +127,7 @@ DEPENDENCIES
   httparty
   pg
   rack-cors
+  rack-icis_identity_auth!
   rails (= 3.2.13)
   rails-api
   sqlite3

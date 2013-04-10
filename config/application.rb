@@ -66,6 +66,6 @@ module IcisPatientEx
       end
     end
 
-    config.middleware.use "ExternalAuthentication"
+    config.middleware.use Rack::IcisIdentityAuth
   end
 end
