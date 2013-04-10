@@ -10,6 +10,10 @@ class ExternalAuthentication
     uid      = env['X-Uid']
     app_name = env['X-App-Name']
 
+    p "Token: #{token}"
+    p "uid: #{uid}"
+    p "app_name: #{app_name}"
+
     return forbidden unless token && uid && app_name
 
     response = HTTParty.get "http://icis-identity-example.herokuapp.com/api/v1/verify.json?id=#{uid}&token=#{token}&app_name=#{app_name}"
