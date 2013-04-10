@@ -26,6 +26,8 @@ class ExternalAuthentication
     when 504
       error_code(504, 'System Down')
     end
+
+    @app.call(env)
   end
 
   private

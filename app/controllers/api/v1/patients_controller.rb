@@ -11,4 +11,5 @@ module Api::V1
 
       render json: patients
     end
+  end
 end
