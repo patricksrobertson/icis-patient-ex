@@ -16,7 +16,7 @@ module Api::V1
 
     private
     def authorize
-      render status: 401 unless access_token && uid && app_name
+      render text: 'unauthorized', status: 401 unless access_token && uid && app_name
     end
 
     def access_token
