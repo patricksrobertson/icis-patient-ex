@@ -21,7 +21,7 @@ module Api::V1
       uri = URI.parse("http://icis-identity-example.herokuapp.com/api/v1/verify/#{uid}")
 
       get_parameters = {
-        token: access_token
+        token: access_token,
         app_name: app_name
       }
 
