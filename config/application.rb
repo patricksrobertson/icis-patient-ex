@@ -65,5 +65,7 @@ module IcisPatientEx
         resource '/api/v1/*', :headers => :any, :methods => [:get]
       end
     end
+
+    config.middleware.use "ExternalAuthentication"
   end
 end
