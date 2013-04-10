@@ -7,6 +7,7 @@ gem 'rails-api'
 gem 'thin'
 gem 'active_model_serializers', :github => 'rails-api/active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'httparty'
 
 group :development, :test do
   gem 'debugger'
