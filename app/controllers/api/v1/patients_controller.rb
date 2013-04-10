@@ -18,15 +18,9 @@ module Api::V1
     def authorize
       render text: 'unauthorized', status: 401 unless access_token && uid && app_name
 
-      uri = URI.parse("http://icis-identity-example.herokuapp.com/api/v1/verify/#{uid}")
-
-      get_parameters = {
-        token: access_token,
-        app_name: app_name
-      }
+      uri = URI.parse("http://icis-identity-example.herokuapp.com/api/v1/verify/#{uid}.json?token=#{token}&app_name=#{app_name}")
 
       req                 = Net::HTTP::Get.new(uri.path)
-      req.body            = JSON.generate(get_parameters)
       req["Content-Type"] = "application/json"
 
       http = Net::HTTP.new(uri.host, uri.port)
