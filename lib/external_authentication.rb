@@ -6,11 +6,9 @@ class ExternalAuthentication
   end
 
   def call(env)
-    token    = env['HTTP_X-Bearer-Token']
-    uid      = env['HTTP_X-Uid']
-    app_name = env['HTTP_X-App-Name']
-
-    p "env: #{env}"
+    token    = env['HTTP_X_BEARER_TOKEN']
+    uid      = env['HTTP_X_UID']
+    app_name = env['HTTP_X_APP_NAME']
 
     p "Token: #{token}"
     p "uid: #{uid}"
