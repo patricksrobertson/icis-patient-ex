@@ -1,6 +1,8 @@
 require 'httparty'
 
 class ExternalAuthentication
+  ROOT_URL = 'http://icis-identity-example.herokuapp.com/api/v1/verify.json'
+
   def initialize(app)
     @app = app
   end
@@ -10,13 +12,9 @@ class ExternalAuthentication
     uid      = env['HTTP_X_UID']
     app_name = env['HTTP_X_APP_NAME']
 
-    p "Token: #{token}"
-    p "uid: #{uid}"
-    p "app_name: #{app_name}"
-
     return forbidden unless token && uid && app_name
 
-    response = HTTParty.get "http://icis-identity-example.herokuapp.com/api/v1/verify.json?id=#{uid}&token=#{token}&app_name=#{app_name}"
+    response = HTTParty.get "#{ROOT_URL}?id=#{uid}&token=#{token}&app_name=#{app_name}"
 
     case response.code
     when 403
