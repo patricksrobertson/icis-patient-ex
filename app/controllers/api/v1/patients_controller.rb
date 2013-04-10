@@ -16,11 +16,22 @@ module Api::V1
 
     private
     def authorize
-      render text: 'unauthorized', status: 401 unless access_token && uid && app_name
+      render text: 'Unauthorized', status: 403 unless access_token && uid && app_name
 
       response = HTTParty.get "http://icis-identity-example.herokuapp.com/api/v1/verify/#{uid}.json?token=#{access_token}&app_name=#{app_name}"
 
-      render text: 'not here', status: 404 if response.code == 404
+      case response.code
+      when 403
+        render text: 'Unauthorized', status: 403
+      when 404
+        render text: 'Not Found', status: 404
+      when 500
+        render text: 'Server Error', status: 500
+      when 503
+        render text: 'Maintenance', status: 503
+      when 504
+        render text: 'System Down', status: 504
+      end
     end
 
     def access_token
