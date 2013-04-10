@@ -18,7 +18,7 @@ module Api::V1
     def authorize
       render text: 'Unauthorized', status: 403 unless access_token && uid && app_name
 
-      response = HTTParty.get "http://icis-identity-example.herokuapp.com/api/v1/verify/#{uid}.json?token=#{access_token}&app_name=#{app_name}"
+      response = HTTParty.get "http://icis-identity-example.herokuapp.com/api/v1/verify.json?id=#{uid}&token=#{access_token}&app_name=#{app_name}"
 
       case response.code
       when 403
