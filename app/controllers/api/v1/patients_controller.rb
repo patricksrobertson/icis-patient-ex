@@ -20,7 +20,7 @@ module Api::V1
 
       response = HTTParty.get "http://icis-identity-example.herokuapp.com/api/v1/verify/#{uid}.json?token=#{access_token}&app_name=#{app_name}"
 
-      rander text: 'not here', status: 404 if response.code == 404
+      render text: 'not here', status: 404 if response.code == 404
     end
 
     def access_token
